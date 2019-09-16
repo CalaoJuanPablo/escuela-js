@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+	<title>Header</title>
+</head>
+<style>
+	* {
+		box-sizing: border-box;
+	}
+	body{
+		margin: 0;
+		background-color: #8f57fd;
+		font-family: 'Muli', sans-serif;
+	}
+	.header{
+		background-color: #8f57fd;
+		width: 100%;
+		height: 80px;
+		padding: 0 16px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.header__img {
+		width: 200px;
+	}
+	.header__menu {
+		position: relative;
+	}
+	.header__menu--profile {
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+	}
+	.header__menu--profile img {
+		width: 40px;
+		height: 40px;
+	}
+	.header__menu--profile p {
+		margin-left: 4px;
+		color: #ffffff;
+	}
+	.header__menu ul {
+		display: none;
+		list-style: none;
+		padding: 0;
+		width: 100px;
+		margin: 0;
+		padding: 1em 0;
+		text-align: right;
+		position: absolute;
+		right: 0;
+	}
+	.header__menu:hover ul {
+		display: block;
+	}
+	.header__menu ul li {
+		padding: 4px 0;
+	}
+	.header__menu ul li a {
+		color: #ffffff;
+		text-decoration: none;
+	}
+	.header__menu ul li a:hover {
+		text-decoration: underline;
+	}
+</style>
+<body>
+	<header class="header">
+		<img class="header__img" src="./assets/logo-platzi-video-BW2.png" alt="Platzi-Video">
+		<div class="header__menu">
+			<div class="header__menu--profile">
+				<img src="./assets/user-icon.png" alt="">
+				<p>Perfil</p>
+			</div>
+			<ul>
+				<li><a href="/">Cuenta</a></li>
+				<li><a href="/">Cerrar Sesión</a></li>
+			</ul>
+		</div>
+  </header>
+  <section class="login">
+    <div class="login__container">
+      <h2>Inicia sesión</h2>
+      <form class="login__container--form">
+        <input class=input"" type="email" name="" id="" placeholder="Correo">
+        <input class=input"" type="password" name="" id="" placeholder="Contraseña">
+        <button class="button" type="submit">Iniciar sesión</button>
+        <div class="login__container--remember-me">
+          <label for="remember-me">
+            <input type="checkbox" id="remember-me" value="false">
+            Recuérdame
+          </label>
+          <a href="#">Olvidé mi contraseña</a>
+        </div>
+      </form>
+      <div class="login__container--social-media">
+        <div>
+          <img src="./assets/google-logo.svg" alt="Google" srcset="">
+          <span>Inicia sesión con Google</span>
+        </div>
+        <div>
+            <img src="./assets/twitter-logo.svg" alt="Google" srcset="">
+          <span>Inicia sesión con Twitter</span>
+        </div>
+      </div>
+      <div>
+        <p class="login__container--register">
+          ¿No tienes ningna cuenta?&nbsp;<a href="#">Regístrate</a>
+        </p>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <a href="/">Términos de uso</a>
+    <a href="/">Declaración de privacidad</a>
+    <a href="/">Centro de ayuda</a>
+  </footer>
+</body>
+</html>
