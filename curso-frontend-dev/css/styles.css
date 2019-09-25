@@ -281,6 +281,28 @@ body{
 .footer a:hover {
 	text-decoration: underline;
 }
+.main-404 {
+	width: 100%;
+	height: calc(100vh - 180px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	color: white;
+}
+.main-404__title,
+.main-404__subtitle {
+	margin: 0;
+}
+.main-404__title {
+	font-size: 120px;
+	animation-name: grow;
+	animation-duration: 4s;
+	animation-iteration-count: infinite;
+}
+.main-404__subtitle {
+	font-size: 36px;
+}
 @media only screen and (max-width:600px) {
 	.login__container {
 		background-color: transparent;
@@ -297,5 +319,16 @@ body{
 	}
 	.footer a:first-of-type {
 		padding-left: 15px;
+	}
+}
+@keyframes grow {
+	0% {
+		font-size: 120px;
+	}
+	50% {
+		font-size: 160px;
+	}
+	100% {
+		font-size: 120px;
 	}
 }
