@@ -15,9 +15,9 @@ MediaPlayer.prototype.pause = function() {
 
 MediaPlayer.prototype.togglePlayPause = function() {
 	if (this.media.paused) {
-		this.media.play()
+		this.play()
 	} else {
-		this.media.pause()
+		this.pause()
 	}
 }
 
