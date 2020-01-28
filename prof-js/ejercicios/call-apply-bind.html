@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Call, Apply, bind</title>
+    <style>
+		body, html {
+			font-family: "Helvetica Neue", sans-serif;
+		}
+	</style>
+</head>
+<body>
+    <h1>Call, Apply, Bind</h1>
+    <script>
+        // Establecer `this` usando `call`
+        function saludar() {
+            console.log(`Hola, soy ${this.fName} ${this.lName}`)
+        }
+        const juan = {
+            fName: "Juan",
+            lName: "Calao"
+        }
+        saludar.call(juan);
+        
+        // Establecer `this` usando `call` y pasar argumentos
+        function caminar(metros, direccion) {
+            console.log(`${this.fName} camina ${metros} metros hacia el ${direccion}`);
+        }
+        caminar.call(juan, 400, "norte");
+        
+        // Establecer `this` con `apply` y pasar argumentos
+        caminar.apply(juan, [500, "sur"]);
+
+        // Establecer `this` con `bind`
+        const leonardo = {
+            fName: "Leonardo",
+            lName: "Funez"
+        }
+
+        const leonardoSaluda = saludar.bind(leonardo);
+        leonardoSaluda();
+        
+        const leonardoCaminar = caminar.bind(leonardo);
+        leonardoCaminar(100, "este");
+    </script>
+</body>
+</html>
