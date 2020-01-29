@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Promises</title>
+    <style>
+		body, html {
+			font-family: "Helvetica Neue", sans-serif;
+		}
+	</style>
+</head>
+<body>
+    <h1>Promises</h1>
+    <script>
+        const API_KEY = "b89fc45c2067cbd33560270639722eae"
+
+        async function getMovie(id) {
+            const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`
+            
+            try {
+                const movie = await fetch(url)
+                    .then(response => response.json())
+                
+                return movie
+            } catch (err) {
+                console.error(err)
+            }
+        }
+
+        async function getPopularMovies() {
+            const url = `https://api.themoviedb.org/3/discover/movie/?sort_by=popularity.desc&api_key=${API_KEY}`
+
+            try {
+                const results = await fetch(url)
+                    .then(res => res.json())
+                    .then(data => data.results)
+
+                return results
+            } catch (err) {
+                console.error(err)
+            }
+        }
+
+        async function getTopMoviesIds(n) {
+            try {
+                if (n > 0) {
+                    const popularMovies = await getPopularMovies()
+                    const ids = popularMovies.slice(0, n).map(movie => movie.id)
+                    return ids
+                } else {
+                    console.error("Variable n is required")
+                }
+            }
+            catch (err) {
+                console.error(err)
+            }
+        }
+
+        async function getTopMoviesInSequence() {
+            const ids = await getTopMoviesIds(3)
+
+            const movies = await ids.map(id => getMovie(id))
+
+            return movies
+        }
+    </script>
+</body>
+</html>
