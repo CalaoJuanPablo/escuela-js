@@ -60,7 +60,6 @@
 
         async function getTopMoviesInSequence() {
             const ids = await getTopMoviesIds(3)
-<<<<<<< HEAD
             const movies = []
 
             ids.forEach(async id => {
@@ -84,10 +83,6 @@
             const moviesPromise = ids.map(id => getMovie(id))
 
             const movies = await Promise.race(moviesPromise)
-=======
-
-            const movies = await ids.map(id => getMovie(id))
->>>>>>> 355a9536d4b352ea5d52d3cd2dae58129dadc30d
 
             return movies
         }
